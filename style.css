@@ -1,0 +1,221 @@
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0a0a0a;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Glowing Sparkles Background */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+      background-size: 50px 50px;
+      animation: sparkle 10s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes sparkle {
+      from { background-position: 0 0; }
+      to { background-position: 100px 100px; }
+    }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 60px;
+      animation: bounceNav 1.5s ease-in-out ;
+    }
+
+    @keyframes bounceNav {
+      0% { transform: translateY(-100%); }
+      50% { transform: translateY(10px); }
+      100% { transform: translateY(0); }
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 30px;
+      font-weight: bold;
+      color: #0f0;
+      text-shadow: 0 0 10px lime;
+      animation: glowLogo 2s infinite alternate;
+    }
+
+    @keyframes glowLogo {
+      0% { text-shadow: 0 0 10px lime; }
+      100% { text-shadow: 0 0 25px lime; }
+    }
+
+    .nav ul {
+      list-style: none;
+      display: flex;
+    }
+
+    .nav ul li {
+      margin-left: 30px;
+    }
+
+    .nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-size: 18px;
+      transition: 0.3s ease;
+      position: relative;
+    }
+
+    .nav ul li a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background: lime;
+      transition: 0.3s ease;
+    }
+
+    .nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    .div {
+      width: 100%;
+      height: 100vh;
+      background: linear-gradient(rgba(0, 0, 0, 0.6), #000),
+        url(https://media.istockphoto.com/id/499775926/photo/coal-production-at-one-of-the-open-fields.jpg?s=1024x1024&w=is&k=20&c=TEG0Gk6TUUZ1yHbIDjSxBWms4S9dgFCjKhI-zWFOSBI=);
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 80px;
+    }
+
+    .div::after {
+      content: "Welcome to SKIBIDI Coal Mine";
+      color: lime;
+      font-size: 48px;
+      font-weight: bold;
+      text-shadow: 0 0 20px lime;
+      animation: textPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes textPulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.8; }
+    }
+
+    .content {
+      padding: 100px 60px;
+      background-color: #1a1a1a;
+      position: relative;
+      z-index: 1;
+      animation: fadeSlide 1.5s ease;
+    }
+
+    @keyframes fadeSlide {
+      0% { opacity: 0; transform: translateY(50px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .content h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: #0f0;
+      text-shadow: 0 0 10px lime;
+    }
+
+    .content p,
+    .content ul {
+      font-size: 18px;
+      line-height: 1.7;
+      color: #ddd;
+    }
+
+    .content ul {
+      margin-top: 20px;
+      padding-left: 20px;
+    }
+
+    .content li {
+      margin-bottom: 10px;
+    }
+
+    .contact-form {
+      background-color: #222;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: 0 auto;
+      box-shadow: 0 0 20px lime;
+      animation: popUp 2s ease;
+    }
+
+    @keyframes popUp {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .contact-form label {
+      font-size: 16px;
+      color: #ccc;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      background-color: #333;
+      color: white;
+    }
+
+    .contact-form input[type="submit"] {
+      background-color: lime;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .contact-form input[type="submit"]:hover {
+      background-color: #caff70;
+    }
+
+    @media screen and (max-width: 768px) {
+      .nav {
+        flex-direction: column;
+        padding: 20px;
+      }
+      .nav ul {
+        flex-direction: column;
+        margin-top: 15px;
+      }
+      .nav ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+      }
+    }
